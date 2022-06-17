@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
     private Editable postId;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                         if (response.isSuccessful()) {
                             binding.tvResult.setText(response.body().getContent());
                             binding.tvTitle.setText(response.body().getTitle());
+                            binding.tvId.setText(response.body().getId());
                         } else if(response.code() == 404) {
                             Toast.makeText(getApplicationContext(),"user not found!",Toast.LENGTH_SHORT).show();
                         }
